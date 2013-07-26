@@ -1,9 +1,11 @@
 /* line 3, style.scss */
-body {
+body, html {
   margin: 0;
+  overflow: hidden;
+  background: black;
 }
 
-/* line 7, style.scss */
+/* line 9, style.scss */
 canvas {
   border: 1px solid black;
 }
