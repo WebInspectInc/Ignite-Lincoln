@@ -1,7 +1,9 @@
 @import "compass/css3";
 
-body {
+body, html {
   margin: 0;
+  overflow: hidden;
+  background: black;
 }
 
 canvas {
