@@ -1,0 +1,1 @@
+function ParticleSystem(e){this.ctx=e;this.particles=[];this.emmisionRate=35}ParticleSystem.prototype.start=function(){};ParticleSystem.prototype.stop=function(){};ParticleSystem.prototype.step=function(e){};ParticleSystem.prototype.draw=function(){};
