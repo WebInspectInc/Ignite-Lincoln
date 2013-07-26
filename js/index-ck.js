@@ -1,0 +1,1 @@
+var c=document.getElementById("c"),ctx=c.getContext("2d"),wwidth=$(window).width(),wheight=$(window).height();c.width=wwidth;c.height=wheight;ctx.font="bold 300px Helvetica";ctx.fillText("x",200,200);

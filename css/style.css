@@ -1,7 +1,9 @@
+/* line 3, style.scss */
 body {
   margin: 0;
 }
 
+/* line 7, style.scss */
 canvas {
   border: 1px solid black;
 }
