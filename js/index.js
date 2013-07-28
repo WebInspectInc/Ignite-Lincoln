@@ -29,12 +29,12 @@ function drawMotto()
 {
 	var y = wHeight / 2 + xHeight / 4;
 	var x = wWidth / 2;
-	var textHeight = findWidth(xWidth, "unleashing brilliance");
+	var textHeight = findWidth(xWidth, "unleash brilliance");
 
 	ctx.fillStyle = "white";
 	ctx.font = (textHeight < 30) ? "200 " : "" + textHeight + "px Helvetica";
 
-	ctx.fillText("unleashing brilliance", x, y + textHeight);
+	ctx.fillText("unleash brilliance", x, y + textHeight);
 }
 
 function findWidth(intendedWidth, someText)
