@@ -5,9 +5,9 @@ function ParticleSystem(ctx)
 	//this.emmisionRate = 35; //per second?
 	this.angle = 0;
 	this.maxParticles = 500;
-	this.particlesPerSecond = 100;
+	this.particlesPerSecond = 60;
 	this.deltaElapsed = 0;
-	this.xSpread = 135;
+	this.xSpread = 200;
 
 	this.particleImage = renderBuffer(40, 40, function(ctx)
 	{ 
@@ -51,7 +51,7 @@ ParticleSystem.prototype.emit = function()
 {
 	if (this.particles.length < this.maxParticles) 
 	{
-		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.PI * 1.5 + (Math.random() - 0.5) * Math.PI / 2, Math.random() * 30 + 80, Math.random() * 4 + 6));
+		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 6 + 4));
 		this.particles[this.particles.length - 1].particleImage = this.particleImage;
 	}
 };
@@ -76,9 +76,9 @@ function Particle(x, y, angle, speed, lifetime)
 	this.rotation = 0;
 	this.rotMod = Math.random() * 2 - 1;
 	this.living = 0;
-	this.deathTime = 2;
+	this.deathTime = 1;
 	this.dying = false;
-	this.alpha = 0.5;
+	this.alpha = 1.0;
 
 	this.r = Math.floor(Math.random() * 70) + 250;
 	this.g = Math.floor(Math.random() * 70) + 155;
@@ -87,19 +87,16 @@ function Particle(x, y, angle, speed, lifetime)
 
 Particle.prototype.step = function(delta)
 {
-	// this.x += Math.cos(this.angle) * this.speed * delta;
-	// this.y += Math.sin(this.angle) * this.speed * delta;
+	this.x += Math.cos(this.angle) * this.speed * delta;
+	this.y += Math.sin(this.angle) * this.speed * delta;
 	this.yvel += 60 * delta;
 	this.y -= this.yvel * delta;
 	this.lifetime -= delta;
 	this.living += delta;
 	this.rotation += Math.abs(Math.random() * delta * 2);
 
-	var trueYVel = this.yvel + Math.sin(this.angle) * this.speed;
-	var trueXVel = Math.cos(this.angle) * this.speed;
-
-	this.x += trueXVel * delta;
-	this.y += trueYVel * delta;
+	var trueYVel = this.yvel + Math.sin(this.angle);
+	var trueXVel = Math.cos(this.angle);
 
 	this.newAngle = Math.atan2(trueXVel, trueYVel);
 
@@ -108,7 +105,7 @@ Particle.prototype.step = function(delta)
 		var timeDying = this.living - this.lifetime;
 		var deadness = timeDying / this.deathTime;
 
-		this.alpha = 0.5 - (deadness / 2);
+		this.alpha = 1.0 - deadness
 		this.r = this.g = 150;
 		this.b = 150 + Math.floor(Math.random() * 100);
 	}
@@ -120,7 +117,7 @@ Particle.prototype.draw = function(ctx)
 	ctx.beginPath();
 	ctx.translate(this.x, this.y);
 	ctx.scale(0.7, 0.7);
-	ctx.rotate(this.newAngle);
+	ctx.rotate(this.newAngle * 180/Math.PI);
 	// ctx.drawImage(this.particleImage, -20, -20);
 
 	ctx.beginPath();
