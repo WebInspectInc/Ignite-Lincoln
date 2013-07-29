@@ -1,4 +1,4 @@
-//@codekit-prepend "convenience.js", ParticleSystem.js";
+//@codekit-prepend "convenience.js", ParticleSystem.js", "_events.js";
 
 var c = document.getElementById("c")
 	,ctx = c.getContext('2d')
