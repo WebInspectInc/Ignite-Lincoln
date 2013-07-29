@@ -22,3 +22,12 @@
             clearTimeout(id);
         };
 }());
+
+function renderBuffer(width, height, renderFunc)
+{
+    var buffer = document.createElement('canvas');
+    buffer.width = width;
+    buffer.height = height;
+    if (renderFunc) renderFunc(buffer.getContext("2d"));
+    return buffer;
+}

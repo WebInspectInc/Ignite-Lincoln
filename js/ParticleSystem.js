@@ -6,9 +6,17 @@ function ParticleSystem(ctx)
 	this.angle = 0;
 	this.maxParticles = 350;
 
-	this.fillStyle = ctx.createRadialGradient(0, 0, 0, 0, 0, 10);
-	this.fillStyle.addColorStop(0, "rgba(255, 255, 255, 1)");
-	this.fillStyle.addColorStop(1, "rgba(255, 255, 255, 0)");
+	this.particleImage = renderBuffer(40, 40, function(ctx)
+	{ 
+		ctx.beginPath();
+		ctx.translate(20, 20);
+		ctx.arc(0, 0, 20, Math.PI*2, false);
+		var fillStyle = ctx.createRadialGradient(0, 0, 0, 0, 0, 10);
+		fillStyle.addColorStop(0, "rgba(255, 255, 255, 1)");
+		fillStyle.addColorStop(1, "rgba(255, 255, 255, 0)");
+		ctx.fillStyle = fillStyle;
+		ctx.fill();
+	});
 }
 
 ParticleSystem.prototype.step = function(delta)
@@ -26,10 +34,10 @@ ParticleSystem.prototype.step = function(delta)
 	}
 
 	if (this.particles.length < this.maxParticles) 
-		{
-			this.particles.push(new Particle(this.x, this.y, this.angle, 50, 6));
-			this.particles[this.particles.length - 1].fillStyle = this.fillStyle;
-		}
+	{
+		this.particles.push(new Particle(this.x, this.y, this.angle, 50, 6));
+		this.particles[this.particles.length - 1].particleImage = this.particleImage;
+	}
 };
 
 ParticleSystem.prototype.draw = function()
@@ -65,8 +73,6 @@ Particle.prototype.draw = function(ctx)
 	ctx.save();
 	ctx.beginPath();
 	ctx.translate(this.x, this.y);
-	ctx.arc(0, 0, 20, Math.PI*2, false);
-	ctx.fillStyle = this.fillStyle;
-	ctx.fill();
+	ctx.drawImage(this.particleImage, -20, -20);
 	ctx.restore();
 };
