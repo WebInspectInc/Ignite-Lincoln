@@ -69,7 +69,7 @@ function findWidth(intendedWidth, someText)
 
 var particleSystem = new ParticleSystem(ctx);
 particleSystem.x = wWidth / 2;
-particleSystem.y = wHeight / 2;
+particleSystem.y = wHeight / 2 + xHeight / 4;
 
 function draw()
 {
@@ -77,6 +77,7 @@ function draw()
 	drawX();
 	drawMotto();
 	particleSystem.draw();
+
 }
 
 var prevTime = null
