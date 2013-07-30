@@ -31,6 +31,7 @@ function step(time)
 	{
 		var delta = (time - prevTime) / 1000;
 		particleSystem.step(delta);
+		text.step(delta);
 		draw();
 	}
 	window.requestAnimationFrame(step);

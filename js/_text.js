@@ -6,7 +6,8 @@ function Text(ctx)
 	this.widthIsBiggerThanHeight = (wWidth > wHeight) ? true : false;
 	this.xHeight = ((this.widthIsBiggerThanHeight) ? this.wHeight * 0.75 : this.wWidth * 0.75);
 	this.xWidth = this.findXWidth();
-	console.log(this.xWidth);
+	this.xColor = "rgb(251,13,11)";
+	this.count = 0;
 
 	this.mottoY = this.wHeight / 2 + this. xHeight / 4;
 	this.mottoX = this.wWidth / 2;
@@ -24,7 +25,7 @@ Text.prototype.drawX = function(ctx)
 {
 	if(!ctx) ctx = this.ctx;
 	ctx.save();
-	ctx.fillStyle = "#FB0D0B";
+	ctx.fillStyle = this.xColor;
 	ctx.font = "bold " + this.xHeight + "px Helvetica";
 	ctx.textAlign = "center";
 	ctx.fillText("x", this.wWidth / 2, this.wHeight / 2 + this.xHeight / 4);
@@ -40,10 +41,29 @@ Text.prototype.drawMotto = function(ctx)
 	ctx.fillStyle = "white";
 	ctx.textAlign = "center";
 	ctx.font = (this.mottoTextHeight < 30) ? "200 " : "" + this.mottoTextHeight + "px Helvetica";
-	console.log(this.mottoTextHeight);
-	console.log(ctx.font);
 
 	ctx.fillText("unleash brilliance", x, y + this.mottoTextHeight);
+};
+
+Text.prototype.step = function(delta)
+{
+	var minRed = 100;
+	var maxRed = 251;
+	var speed = 150;
+	
+	if(this.count > maxRed)
+		this.forward = false;
+	if(this.count < minRed)
+		this.forward = true;
+
+	this.forward === true ? this.count += speed * delta : this.count -= speed * delta;
+
+	console.log(this.count)
+	this.animLength = 5000;
+
+	var red = (Math.floor(this.count) % this.animLength);
+
+	this.xColor = "rgb(" + red + ",13,11)"
 };
 
 Text.prototype.findXWidth = function()
