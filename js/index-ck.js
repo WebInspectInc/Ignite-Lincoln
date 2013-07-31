@@ -39,7 +39,7 @@ function renderBuffer(width, height, renderFunc)
 function ParticleSystem(ctx)
 {
 	this.ctx = ctx;
-	this.particles = [];
+	//this.particles = [];
 	this.frontParticles = [];
 	this.backParticles = [];
 	this.emitFrontNext = true;
@@ -70,16 +70,29 @@ ParticleSystem.prototype.step = function(delta)
 	if (this.angle >= 360) this.angle -= 360 * 2;
 	else if (this.angle <= -360) this.angle += 360;
 
-	var i = this.particles.length;
-	while(i--)
+	var particles = this.frontParticles.concat(this.backParticles);
+
+	var self = this;
+	var pStep = function(p)
 	{
-		this.particles[i].step(delta);
-		// if (this.particles[i].living > this.particles[i].lifetime) this.particles.splice(i, 1);
-		if (!this.particles[i].dying && this.particles[i].living > this.particles[i].lifetime) this.particles[i].dying = true;
-		else if (this.particles[i].living - this.particles[i].deathTime > this.particles[i].lifetime)
+		p.step(delta);
+		if (!p.dying && p.living > p.lifetime) p.dying = true;
+		else if (p.living - p.deathTime > p.lifetime || p.y + 50 < 0)
 		{
-			this.particles.splice(i, 1);
+			// particles.splice(i, 1);
+			if (p.front) self.frontParticles.splice(self.frontParticles.indexOf(p), 1);
+			else self.backParticles.splice(self.backParticles.indexOf(p), 1);
 		}
+	}
+
+	var f = this.frontParticles.length;
+	var b = this.backParticles.length;
+
+	var i = particles.length;
+
+	while(i--) 
+	{
+		pStep(particles[i]);
 	}
 
 	for (var time = 1 / this.particlesPerSecond; this.deltaElapsed >= time; this.deltaElapsed -= time)
@@ -92,36 +105,31 @@ ParticleSystem.prototype.step = function(delta)
 
 ParticleSystem.prototype.emit = function()
 {
-	if (this.particles.length < this.maxParticles) 
+	if (this.frontParticles.length + this.backParticles.length < this.maxParticles) 
 	{
 		this.emitFrontNext = !this.emitFrontNext;
-		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 5 + 5));
-		this.particles[this.particles.length - 1].particleImage = this.particleImage;
-		this.particles[this.particles.length - 1].front = this.emitFrontNext;
+		var p = new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 5 + 5)
+		p.particleImage = this.particleImage;
+		p.front = this.emitFrontNext;
+
+		if (this.emitFrontNext) this.frontParticles.push(p);
+		else this.backParticles.push(p);
 	}
 };
 
-ParticleSystem.prototype.draw = function()
-{
-	for (var i = 0; i < this.particles.length; i++)
-	{
-		this.particles[i].draw(this.ctx);
-	}
-}
-
 ParticleSystem.prototype.drawFront = function()
 {
-	for (var i = 0; i < this.particles.length; i++)
+	for (var i = 0; i < this.frontParticles.length; i++)
 	{
-		if (this.particles[i].front) this.particles[i].draw(this.ctx);
+		this.frontParticles[i].draw(this.ctx);
 	}
 }
 
 ParticleSystem.prototype.drawBack = function()
 {
-	for (var i = 0; i < this.particles.length; i++)
+	for (var i = 0; i < this.backParticles.length; i++)
 	{
-		if (!this.particles[i].front) this.particles[i].draw(this.ctx);
+		this.backParticles[i].draw(this.ctx);
 	}
 }
 
