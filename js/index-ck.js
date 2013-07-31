@@ -95,7 +95,7 @@ ParticleSystem.prototype.emit = function()
 	if (this.particles.length < this.maxParticles) 
 	{
 		this.emitFrontNext = !this.emitFrontNext;
-		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 5 + 5));
+		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread, this.y, Math.random() * 360, 50, Math.random() * 5 + 5));
 		this.particles[this.particles.length - 1].particleImage = this.particleImage;
 		this.particles[this.particles.length - 1].front = this.emitFrontNext;
 	}
@@ -383,6 +383,7 @@ var text = new Text(ctx);
 var particleSystem = new ParticleSystem(ctx);
 particleSystem.x = wWidth / 2;
 particleSystem.y = wHeight / 2 + text.xHeight / 4 - 20;
+particleSystem.xSpread = text.xWidth;
 
 function draw()
 {

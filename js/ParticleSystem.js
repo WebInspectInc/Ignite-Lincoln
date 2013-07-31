@@ -57,7 +57,7 @@ ParticleSystem.prototype.emit = function()
 	if (this.particles.length < this.maxParticles) 
 	{
 		this.emitFrontNext = !this.emitFrontNext;
-		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 5 + 5));
+		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread, this.y, Math.random() * 360, 50, Math.random() * 5 + 5));
 		this.particles[this.particles.length - 1].particleImage = this.particleImage;
 		this.particles[this.particles.length - 1].front = this.emitFrontNext;
 	}
