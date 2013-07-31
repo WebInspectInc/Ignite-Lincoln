@@ -13,7 +13,6 @@ function Text(ctx)
 	this.mottoY = this.wHeight / 2 + this. xHeight / 4;
 	this.mottoX = this.wWidth / 2;
 	this.mottoTextHeight = this.findXHeight(this.xWidth, "unleash brilliance", ctx);
-	console.log(this.mottoTextHeight);
 }
 
 Text.prototype.draw = function(ctx)

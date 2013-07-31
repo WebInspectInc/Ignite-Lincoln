@@ -11,14 +11,14 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 32768
     },
-    "\/index.html" : {
+    "\/css\/style.css" : {
       "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
+      "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/index.html",
+      "inputAbbreviatedPath" : "\/css\/style.css",
       "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "fileType" : 16
     },
     "\/js\/ParticleSystem.js" : {
       "ignoreWasSetByUser" : 0,
@@ -54,16 +54,14 @@
       "fileType" : 4,
       "debugStyle" : 2
     },
-    "\/js\/index.js" : {
+    "\/index.html" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/index.js",
-      "outputStyle" : 0,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/js\/index-ck.js",
-      "fileType" : 64
+      "inputAbbreviatedPath" : "\/index.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
     },
     "\/js\/index-ck.js" : {
       "ignoreWasSetByUser" : 0,
@@ -75,15 +73,6 @@
       "syntaxCheckerStyle" : 0,
       "outputAbbreviatedPath" : "\/js\/index-ck-ck.js",
       "fileType" : 64
-    },
-    "\/css\/style.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/style.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
     },
     "\/js\/convenience.js" : {
       "ignoreWasSetByUser" : 0,
@@ -105,6 +94,17 @@
       "outputStyle" : 1,
       "syntaxCheckerStyle" : 0,
       "outputAbbreviatedPath" : "\/js\/ParticleSystem-ck-ck.js",
+      "fileType" : 64
+    },
+    "\/js\/index.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/index.js",
+      "outputStyle" : 0,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/js\/index-ck.js",
       "fileType" : 64
     },
     "\/js\/_text.js" : {

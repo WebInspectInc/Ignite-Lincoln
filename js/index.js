@@ -15,14 +15,14 @@ var text = new Text(ctx);
 
 var particleSystem = new ParticleSystem(ctx);
 particleSystem.x = wWidth / 2;
-particleSystem.y = wHeight / 2 + text.xHeight / 4;
+particleSystem.y = wHeight / 2 + text.xHeight / 4 - 20;
 
 function draw()
 {
 	ctx.clearRect(0, 0, wWidth, wHeight);
+	text.drawX();
 	particleSystem.draw();
-	text.draw();
-
+	text.drawMotto();
 }
 
 var prevTime = null
