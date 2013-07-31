@@ -13,7 +13,7 @@ var text = new Text(ctx);
 
 var particleSystem = new ParticleSystem(ctx);
 particleSystem.x = wWidth / 2;
-particleSystem.y = wHeight / 2 + xHeight / 4;
+particleSystem.y = wHeight / 2 + text.xHeight / 4;
 
 function draw()
 {
