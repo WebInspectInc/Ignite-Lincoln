@@ -11,6 +11,15 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 32768
     },
+    "\/index.html" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 0,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/index.html",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 2048
+    },
     "\/js\/ParticleSystem.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -22,26 +31,28 @@
       "outputAbbreviatedPath" : "\/js\/ParticleSystem-ck.js",
       "fileType" : 64
     },
+    "\/js\/_events.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/_events.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/js\/_events-ck.js",
+      "fileType" : 64
+    },
     "\/css\/style.scss" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
       "inputAbbreviatedPath" : "\/css\/style.scss",
-      "outputStyle" : 0,
+      "outputStyle" : 2,
       "shouldRunBless" : 0,
       "outputAbbreviatedPath" : "\/css\/style.css",
       "fileType" : 4,
-      "debugStyle" : 0
-    },
-    "\/index.html" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 0,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/index.html",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 2048
+      "debugStyle" : 2
     },
     "\/js\/index.js" : {
       "ignoreWasSetByUser" : 0,
@@ -74,6 +85,17 @@
       "outputAbbreviatedPath" : "No Output Path",
       "fileType" : 16
     },
+    "\/js\/convenience.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/convenience.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/js\/convenience-ck.js",
+      "fileType" : 64
+    },
     "\/js\/ParticleSystem-ck.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
@@ -85,15 +107,15 @@
       "outputAbbreviatedPath" : "\/js\/ParticleSystem-ck-ck.js",
       "fileType" : 64
     },
-    "\/js\/convenience.js" : {
+    "\/js\/_text.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/convenience.js",
-      "outputStyle" : 1,
+      "inputAbbreviatedPath" : "\/js\/_text.js",
+      "outputStyle" : 0,
       "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/js\/convenience-ck.js",
+      "outputAbbreviatedPath" : "\/js\/_text-ck.js",
       "fileType" : 64
     }
   },
@@ -129,11 +151,11 @@
     "lessAutoOutputPathRelativePath" : "..\/css",
     "hamlAutoOutputPathRelativePath" : "",
     "jsCheckerReservedNamesString" : "",
-    "javascriptOutputStyle" : 1,
+    "javascriptOutputStyle" : 0,
     "stylusDebugStyle" : 0,
     "hamlUseCDATA" : 0,
     "hamlAutoOutputPathStyle" : 0,
-    "sassDebugStyle" : 0,
+    "sassDebugStyle" : 2,
     "hamlOutputStyle" : 0,
     "stylusAutoOutputPathRelativePath" : "..\/css",
     "jsCheckerIndent" : 4,
@@ -147,7 +169,7 @@
     "javascriptSyntaxCheckerStyle" : 0,
     "sassAutoOutputPathReplace1" : "sass",
     "slimAutoOutputPathReplace1" : "",
-    "sassOutputStyle" : 0,
+    "sassOutputStyle" : 2,
     "coffeeAutoOutputPathRelativePath" : "",
     "slimCompileOnly" : 0,
     "slimLogicless" : 0,
@@ -274,7 +296,7 @@
   },
   "projectAttributes" : {
     "bourbonEnabled" : 0,
-    "displayValue" : "Ignite-Lincoln",
+    "displayValue" : "IgniteLincoln",
     "displayValueWasSetByUser" : 0,
     "compassEnabled" : 1
   }

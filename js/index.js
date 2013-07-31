@@ -4,6 +4,8 @@ var c = document.getElementById("c")
 	,ctx = c.getContext('2d')
 	,wWidth = $(window).width()
 	,wHeight = $(window).height()
+	,widthIsBiggerThanHeight = (wWidth > wHeight) ? true : false
+	,xHeight = ((widthIsBiggerThanHeight) ? wHeight * 0.75 : wWidth * 0.75)
 	;
 
 c.width = wWidth;
@@ -22,7 +24,6 @@ function draw()
 	text.draw();
 	//particleSystem.draw();
 	particleSystem.drawFront();
-
 }
 
 var prevTime = null

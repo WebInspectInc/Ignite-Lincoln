@@ -7,7 +7,8 @@ function Text(ctx)
 	this.xHeight = ((this.widthIsBiggerThanHeight) ? this.wHeight * 0.75 : this.wWidth * 0.75);
 	this.xWidth = this.findXWidth();
 	this.xColor = "rgb(251,13,11)";
-	this.count = 0;
+	this.count = 200;
+	this.fadeIn = true;
 
 	this.mottoY = this.wHeight / 2 + this. xHeight / 4;
 	this.mottoX = this.wWidth / 2;
@@ -30,6 +31,16 @@ Text.prototype.drawX = function(ctx)
 	ctx.textAlign = "center";
 	ctx.fillText("x", this.wWidth / 2, this.wHeight / 2 + this.xHeight / 4);
 	ctx.restore();
+	// var mask = document.createElement('img');
+	// mask.src = this.createXImage();
+
+	// var img = document.createElement('img');
+	// img.src = "coals.jpg";
+
+	// var test = document.createElement('img');
+	// test.src = this.mask(img, mask);
+
+	// ctx.drawImage(mask, this.wWidth / 2 - this.xWidth / 2, this.wHeight / 2 - this.xHeight / 2, this.xWidth, this.xHeight);
 };
 
 Text.prototype.drawMotto = function(ctx)
@@ -47,9 +58,9 @@ Text.prototype.drawMotto = function(ctx)
 
 Text.prototype.step = function(delta)
 {
-	var minRed = 100;
+	var minRed = 230;
 	var maxRed = 251;
-	var speed = 150;
+	var speed = 15;
 	
 	if(this.count > maxRed)
 		this.forward = false;
@@ -58,12 +69,9 @@ Text.prototype.step = function(delta)
 
 	this.forward === true ? this.count += speed * delta : this.count -= speed * delta;
 
-	console.log(this.count)
-	this.animLength = 5000;
+	var red = Math.floor(this.count);
 
-	var red = (Math.floor(this.count) % this.animLength);
-
-	this.xColor = "rgb(" + red + ",13,11)"
+	this.xColor = "rgb(" + red + "," + (red - 200) + ",11)"
 };
 
 Text.prototype.findXWidth = function()
@@ -73,9 +81,9 @@ Text.prototype.findXWidth = function()
 	ctx.font = "bold " + this.xHeight + "px Helvetica";
 	ctx.textAlign = "center";
 	ctx.fillText("x", this.wWidth / 2, this.wHeight / 2 + this.xHeight / 4);
-	var a = ctx.measureText("x").width;
+	var width = ctx.measureText("x").width;
 	ctx.restore();
-	return a;
+	return width;
 };
 
 Text.prototype.findXHeight = function(intendedWidth, someText, ctx)
@@ -107,4 +115,29 @@ Text.prototype.findXHeight = function(intendedWidth, someText, ctx)
 		}
 	}
 	return size;
+};
+
+Text.prototype.createXImage = function()
+{
+	var width = this.xWidth;
+	var height = this.xHeight;
+	return renderBuffer(width, height, function(ctx)
+	{
+		ctx.font = "bold " + this.xHeight + "px Helvetica";
+		ctx.fillStyle = "white";
+		ctx.textAlign = "center";
+		ctx.fillText("x", width / 2, height / 2 + this.xHeight / 4);
+	}).toDataURL();
+};
+
+Text.prototype.mask = function(img, mask)
+{
+	return renderBuffer(this.xWidth, this.xHeight, function(ctx)
+	{
+		var width = this.xWidth;
+		var height = this.xHeight;
+		ctx.drawImage(mask, 0, 0);
+		ctx.globalCompositeOperation = 'source-atop';
+		ctx.drawImage(img, 0, 0);
+	}).toDataURL();
 };

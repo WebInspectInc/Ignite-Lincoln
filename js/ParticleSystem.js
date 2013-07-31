@@ -57,7 +57,7 @@ ParticleSystem.prototype.emit = function()
 	if (this.particles.length < this.maxParticles) 
 	{
 		this.emitFrontNext = !this.emitFrontNext;
-		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 4 + 6));
+		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 5 + 5));
 		this.particles[this.particles.length - 1].particleImage = this.particleImage;
 		this.particles[this.particles.length - 1].front = this.emitFrontNext;
 	}
@@ -99,7 +99,7 @@ function Particle(x, y, angle, speed, lifetime)
 	this.rotation = 0;
 	this.rotMod = Math.random() * 2 - 1;
 	this.living = 0;
-	this.deathTime = 2;
+	this.deathTime = 3;
 	this.dying = false;
 	this.alpha = 1.0;
 	this.front = true;
@@ -130,8 +130,11 @@ Particle.prototype.step = function(delta)
 		var deadness = timeDying / this.deathTime;
 
 		this.alpha = 1.0 - deadness
-		this.r = this.g = 150;
-		this.b = 120 + Math.floor(Math.random() * 100);
+		/*this.r = this.g = 150;
+		this.b = 120 + Math.floor(Math.random() * 100);*/
+		this.r = 220;
+		this.g = 188;
+		this.b = 255;
 	}
 };
 
