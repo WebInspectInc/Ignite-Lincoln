@@ -215,6 +215,8 @@ $(document).on('touchstart', function()
      Begin _text.js
 ********************************************** */
 
+var font = "Helvetica, Arial, sans-serif";
+
 function Text(ctx)
 {
 	this.ctx = ctx;
@@ -243,7 +245,7 @@ Text.prototype.drawX = function(ctx)
 	if(!ctx) ctx = this.ctx;
 	ctx.save();
 	ctx.fillStyle = this.xColor;
-	ctx.font = "bold " + this.xHeight + "px Helvetica";
+	ctx.font = "bold " + this.xHeight + "px " + font;
 	ctx.textAlign = "center";
 	ctx.fillText("x", this.wWidth / 2, this.wHeight / 2 + this.xHeight / 4);
 	ctx.restore();
@@ -267,7 +269,7 @@ Text.prototype.drawMotto = function(ctx)
 
 	ctx.fillStyle = "white";
 	ctx.textAlign = "center";
-	ctx.font = "500 " + this.mottoTextHeight + "px Helvetica";
+	ctx.font = "500 " + this.mottoTextHeight + "px " + font;
 
 	ctx.fillText("unleash brilliance", x, y + this.mottoTextHeight);
 };
