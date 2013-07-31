@@ -2,6 +2,9 @@ function ParticleSystem(ctx)
 {
 	this.ctx = ctx;
 	this.particles = [];
+	this.frontParticles = [];
+	this.backParticles = [];
+	this.emitFrontNext = true;
 	//this.emmisionRate = 35; //per second?
 	this.angle = 0;
 	this.maxParticles = 350;
@@ -36,7 +39,9 @@ ParticleSystem.prototype.step = function(delta)
 		// if (this.particles[i].living > this.particles[i].lifetime) this.particles.splice(i, 1);
 		if (!this.particles[i].dying && this.particles[i].living > this.particles[i].lifetime) this.particles[i].dying = true;
 		else if (this.particles[i].living - this.particles[i].deathTime > this.particles[i].lifetime)
-		 this.particles.splice(i, 1);
+		{
+			this.particles.splice(i, 1);
+		}
 	}
 
 	for (var time = 1 / this.particlesPerSecond; this.deltaElapsed >= time; this.deltaElapsed -= time)
@@ -51,8 +56,10 @@ ParticleSystem.prototype.emit = function()
 {
 	if (this.particles.length < this.maxParticles) 
 	{
-		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 4 + 6));
+		this.emitFrontNext = !this.emitFrontNext;
+		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 5 + 5));
 		this.particles[this.particles.length - 1].particleImage = this.particleImage;
+		this.particles[this.particles.length - 1].front = this.emitFrontNext;
 	}
 };
 
@@ -61,6 +68,22 @@ ParticleSystem.prototype.draw = function()
 	for (var i = 0; i < this.particles.length; i++)
 	{
 		this.particles[i].draw(this.ctx);
+	}
+}
+
+ParticleSystem.prototype.drawFront = function()
+{
+	for (var i = 0; i < this.particles.length; i++)
+	{
+		if (this.particles[i].front) this.particles[i].draw(this.ctx);
+	}
+}
+
+ParticleSystem.prototype.drawBack = function()
+{
+	for (var i = 0; i < this.particles.length; i++)
+	{
+		if (!this.particles[i].front) this.particles[i].draw(this.ctx);
 	}
 }
 
@@ -76,9 +99,10 @@ function Particle(x, y, angle, speed, lifetime)
 	this.rotation = 0;
 	this.rotMod = Math.random() * 2 - 1;
 	this.living = 0;
-	this.deathTime = 2;
+	this.deathTime = 3;
 	this.dying = false;
 	this.alpha = 1.0;
+	this.front = true;
 
 	this.r = Math.floor(Math.random() * 70) + 250;
 	this.g = Math.floor(Math.random() * 70) + 155;
@@ -106,9 +130,17 @@ Particle.prototype.step = function(delta)
 		var deadness = timeDying / this.deathTime;
 
 		this.alpha = 1.0 - deadness
+<<<<<<< HEAD
 		this.r = 23;
 		this.g = 231;
 		this.b = 100 + Math.floor(Math.random() * 100);
+=======
+		/*this.r = this.g = 150;
+		this.b = 120 + Math.floor(Math.random() * 100);*/
+		this.r = 220;
+		this.g = 188;
+		this.b = 255;
+>>>>>>> fbf2448733d07cffb0c638b1858774536c7b5952
 	}
 };
 
