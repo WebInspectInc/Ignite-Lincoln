@@ -12,7 +12,7 @@ function Text(ctx)
 
 	this.mottoY = this.wHeight / 2 + this. xHeight / 4;
 	this.mottoX = this.wWidth / 2;
-	this.mottoTextHeight = this.findXHeight(this.xWidth, "unleash brilliance", ctx);
+	this.mottoTextHeight = this.findMottoHeight(this.xWidth + 50, "unleash brilliance", ctx);
 }
 
 Text.prototype.draw = function(ctx)
@@ -50,7 +50,7 @@ Text.prototype.drawMotto = function(ctx)
 
 	ctx.fillStyle = "white";
 	ctx.textAlign = "center";
-	ctx.font = (this.mottoTextHeight < 30) ? "200 " : "" + this.mottoTextHeight + "px Helvetica";
+	ctx.font = "500 " + this.mottoTextHeight + "px Helvetica";
 
 	ctx.fillText("unleash brilliance", x, y + this.mottoTextHeight);
 };
@@ -85,7 +85,7 @@ Text.prototype.findXWidth = function()
 	return width;
 };
 
-Text.prototype.findXHeight = function(intendedWidth, someText, ctx)
+Text.prototype.findMottoHeight = function(intendedWidth, someText, ctx)
 {
 	if(!ctx) ctx = this.ctx;
 	var size = 30,
