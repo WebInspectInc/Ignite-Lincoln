@@ -4,6 +4,8 @@ var c = document.getElementById("c")
 	,ctx = c.getContext('2d')
 	,wWidth = $(window).width()
 	,wHeight = $(window).height()
+	,widthIsBiggerThanHeight = (wWidth > wHeight) ? true : false
+	,xHeight = ((widthIsBiggerThanHeight) ? wHeight * 0.75 : wWidth * 0.75)
 	;
 
 c.width = wWidth;
@@ -18,8 +20,8 @@ particleSystem.y = wHeight / 2 + text.xHeight / 4;
 function draw()
 {
 	ctx.clearRect(0, 0, wWidth, wHeight);
-	text.draw();
 	particleSystem.draw();
+	text.draw();
 
 }
 
