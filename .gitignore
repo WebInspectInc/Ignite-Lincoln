@@ -1,2 +1,4 @@
 .sass-cache
-*-ck.*
+/components/
+component.json
+codekit-config.json

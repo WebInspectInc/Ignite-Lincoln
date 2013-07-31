@@ -11,6 +11,7 @@ var c = document.getElementById("c")
 c.width = wWidth;
 c.height = wHeight;
 
+//test
 var text = new Text(ctx);
 
 var particleSystem = new ParticleSystem(ctx);
