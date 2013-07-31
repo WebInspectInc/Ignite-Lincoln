@@ -48,7 +48,7 @@ function ParticleSystem(ctx)
 	this.maxParticles = 350;
 	this.particlesPerSecond = 30;
 	this.deltaElapsed = 0;
-	this.xSpread = 100;
+	this.xSpread = 200;
 
 	this.particleImage = renderBuffer(40, 40, function(ctx)
 	{ 
@@ -223,7 +223,7 @@ function Text(ctx)
 	this.wWidth = $(window).width();
 	this.wHeight = $(window).height();
 	this.widthIsBiggerThanHeight = (wWidth > wHeight) ? true : false;
-	this.xHeight = ((this.widthIsBiggerThanHeight) ? this.wHeight * 0.75 : this.wWidth * 0.75);
+	this.xHeight = ((this.widthIsBiggerThanHeight) ? this.wHeight * 1.5 : this.wWidth * 1.5);
 	this.xWidth = this.findXWidth();
 	this.xColor = "rgb(251,13,11)";
 	this.count = 200;
@@ -391,7 +391,7 @@ function draw()
 	text.drawX();
 	//particleSystem.draw();
 	particleSystem.drawFront();
-	text.drawMotto();
+	//text.drawMotto();
 }
 
 var prevTime = null

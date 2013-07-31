@@ -25,7 +25,7 @@ function draw()
 	text.drawX();
 	//particleSystem.draw();
 	particleSystem.drawFront();
-	text.drawMotto();
+	//text.drawMotto();
 }
 
 var prevTime = null

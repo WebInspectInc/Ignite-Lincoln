@@ -10,7 +10,7 @@ function ParticleSystem(ctx)
 	this.maxParticles = 350;
 	this.particlesPerSecond = 30;
 	this.deltaElapsed = 0;
-	this.xSpread = 100;
+	this.xSpread = 200;
 
 	this.particleImage = renderBuffer(40, 40, function(ctx)
 	{ 
