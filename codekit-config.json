@@ -109,15 +109,6 @@
       "fileType" : 4,
       "debugStyle" : 2
     },
-    "\/css\/style.css" : {
-      "ignoreWasSetByUser" : 0,
-      "ignore" : 1,
-      "hidden" : 0,
-      "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/css\/style.css",
-      "outputAbbreviatedPath" : "No Output Path",
-      "fileType" : 16
-    },
     "\/components\/html5-boilerplate\/js\/plugins.js" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
@@ -129,15 +120,26 @@
       "outputAbbreviatedPath" : "\/components\/html5-boilerplate\/js\/plugins-ck.js",
       "fileType" : 64
     },
-    "\/apple-touch-icon-114x114-precomposed.png" : {
+    "\/js\/ParticleSystem.js" : {
+      "ignoreWasSetByUser" : 0,
+      "ignore" : 1,
+      "hidden" : 0,
+      "outputPathIsSetByUser" : 0,
+      "inputAbbreviatedPath" : "\/js\/ParticleSystem.js",
+      "outputStyle" : 1,
+      "syntaxCheckerStyle" : 0,
+      "outputAbbreviatedPath" : "\/js\/ParticleSystem-ck.js",
+      "fileType" : 64
+    },
+    "\/apple-touch-icon-72x72-precomposed.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/apple-touch-icon-114x114-precomposed.png",
+      "inputAbbreviatedPath" : "\/apple-touch-icon-72x72-precomposed.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/apple-touch-icon-114x114-precomposed.png",
-      "initialSize" : 1189,
+      "outputAbbreviatedPath" : "\/apple-touch-icon-72x72-precomposed.png",
+      "initialSize" : 854,
       "fileType" : 8192
     },
     "\/js\/ParticleSystem-ck.js" : {
@@ -162,27 +164,25 @@
       "outputAbbreviatedPath" : "\/components\/html5-boilerplate\/js\/main-ck.js",
       "fileType" : 64
     },
-    "\/apple-touch-icon-72x72-precomposed.png" : {
+    "\/apple-touch-icon-114x114-precomposed.png" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 0,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/apple-touch-icon-72x72-precomposed.png",
+      "inputAbbreviatedPath" : "\/apple-touch-icon-114x114-precomposed.png",
       "processed" : 0,
-      "outputAbbreviatedPath" : "\/apple-touch-icon-72x72-precomposed.png",
-      "initialSize" : 854,
+      "outputAbbreviatedPath" : "\/apple-touch-icon-114x114-precomposed.png",
+      "initialSize" : 1189,
       "fileType" : 8192
     },
-    "\/js\/ParticleSystem.js" : {
+    "\/css\/style.css" : {
       "ignoreWasSetByUser" : 0,
       "ignore" : 1,
       "hidden" : 0,
       "outputPathIsSetByUser" : 0,
-      "inputAbbreviatedPath" : "\/js\/ParticleSystem.js",
-      "outputStyle" : 1,
-      "syntaxCheckerStyle" : 0,
-      "outputAbbreviatedPath" : "\/js\/ParticleSystem-ck.js",
-      "fileType" : 64
+      "inputAbbreviatedPath" : "\/css\/style.css",
+      "outputAbbreviatedPath" : "No Output Path",
+      "fileType" : 16
     },
     "\/apple-touch-icon.png" : {
       "ignoreWasSetByUser" : 0,
