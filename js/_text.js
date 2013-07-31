@@ -1,10 +1,12 @@
+var font = "Helvetica, Arial, sans-serif";
+
 function Text(ctx)
 {
 	this.ctx = ctx;
 	this.wWidth = $(window).width();
 	this.wHeight = $(window).height();
 	this.widthIsBiggerThanHeight = (wWidth > wHeight) ? true : false;
-	this.xHeight = ((this.widthIsBiggerThanHeight) ? this.wHeight * 0.75 : this.wWidth * 0.75);
+	this.xHeight = ((this.widthIsBiggerThanHeight) ? this.wHeight * 1.5 : this.wWidth * 1.5);
 	this.xWidth = this.findXWidth();
 	this.xColor = "rgb(251,13,11)";
 	this.count = 200;
@@ -26,7 +28,7 @@ Text.prototype.drawX = function(ctx)
 	if(!ctx) ctx = this.ctx;
 	ctx.save();
 	ctx.fillStyle = this.xColor;
-	ctx.font = "bold " + this.xHeight + "px Helvetica";
+	ctx.font = "bold " + this.xHeight + "px " + font;
 	ctx.textAlign = "center";
 	ctx.fillText("x", this.wWidth / 2, this.wHeight / 2 + this.xHeight / 4);
 	ctx.restore();
@@ -50,7 +52,7 @@ Text.prototype.drawMotto = function(ctx)
 
 	ctx.fillStyle = "white";
 	ctx.textAlign = "center";
-	ctx.font = "500 " + this.mottoTextHeight + "px Helvetica";
+	ctx.font = "500 " + this.mottoTextHeight + "px " + font;
 
 	ctx.fillText("unleash brilliance", x, y + this.mottoTextHeight);
 };

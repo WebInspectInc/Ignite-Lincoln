@@ -10,7 +10,7 @@ function ParticleSystem(ctx)
 	this.maxParticles = 350;
 	this.particlesPerSecond = 30;
 	this.deltaElapsed = 0;
-	this.xSpread = 100;
+	this.xSpread = 200;
 
 	this.particleImage = renderBuffer(40, 40, function(ctx)
 	{ 
@@ -70,10 +70,9 @@ ParticleSystem.prototype.emit = function()
 	if (this.frontParticles.length + this.backParticles.length < this.maxParticles) 
 	{
 		this.emitFrontNext = !this.emitFrontNext;
-		var p = new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 5 + 5)
+		var p = new Particle(this.x + (Math.random() - 0.5) * this.xSpread, this.y, Math.random() * 360, 50, Math.random() * 5 + 5)
 		p.particleImage = this.particleImage;
 		p.front = this.emitFrontNext;
-
 		if (this.emitFrontNext) this.frontParticles.push(p);
 		else this.backParticles.push(p);
 	}

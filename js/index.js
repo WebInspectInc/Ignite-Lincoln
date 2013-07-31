@@ -17,6 +17,7 @@ var text = new Text(ctx);
 var particleSystem = new ParticleSystem(ctx);
 particleSystem.x = wWidth / 2;
 particleSystem.y = wHeight / 2 + text.xHeight / 4 - 20;
+particleSystem.xSpread = text.xWidth;
 
 function draw()
 {
@@ -25,7 +26,7 @@ function draw()
 	text.drawX();
 	//particleSystem.draw();
 	particleSystem.drawFront();
-	text.drawMotto();
+	//text.drawMotto();
 }
 
 var prevTime = null

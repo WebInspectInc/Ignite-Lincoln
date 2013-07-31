@@ -48,7 +48,7 @@ function ParticleSystem(ctx)
 	this.maxParticles = 350;
 	this.particlesPerSecond = 30;
 	this.deltaElapsed = 0;
-	this.xSpread = 100;
+	this.xSpread = 200;
 
 	this.particleImage = renderBuffer(40, 40, function(ctx)
 	{ 
@@ -108,10 +108,9 @@ ParticleSystem.prototype.emit = function()
 	if (this.frontParticles.length + this.backParticles.length < this.maxParticles) 
 	{
 		this.emitFrontNext = !this.emitFrontNext;
-		var p = new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 5 + 5)
+		var p = new Particle(this.x + (Math.random() - 0.5) * this.xSpread, this.y, Math.random() * 360, 50, Math.random() * 5 + 5)
 		p.particleImage = this.particleImage;
 		p.front = this.emitFrontNext;
-
 		if (this.emitFrontNext) this.frontParticles.push(p);
 		else this.backParticles.push(p);
 	}
@@ -223,13 +222,15 @@ $(document).on('touchstart', function()
      Begin _text.js
 ********************************************** */
 
+var font = "Helvetica, Arial, sans-serif";
+
 function Text(ctx)
 {
 	this.ctx = ctx;
 	this.wWidth = $(window).width();
 	this.wHeight = $(window).height();
 	this.widthIsBiggerThanHeight = (wWidth > wHeight) ? true : false;
-	this.xHeight = ((this.widthIsBiggerThanHeight) ? this.wHeight * 0.75 : this.wWidth * 0.75);
+	this.xHeight = ((this.widthIsBiggerThanHeight) ? this.wHeight * 1.5 : this.wWidth * 1.5);
 	this.xWidth = this.findXWidth();
 	this.xColor = "rgb(251,13,11)";
 	this.count = 200;
@@ -251,7 +252,7 @@ Text.prototype.drawX = function(ctx)
 	if(!ctx) ctx = this.ctx;
 	ctx.save();
 	ctx.fillStyle = this.xColor;
-	ctx.font = "bold " + this.xHeight + "px Helvetica";
+	ctx.font = "bold " + this.xHeight + "px " + font;
 	ctx.textAlign = "center";
 	ctx.fillText("x", this.wWidth / 2, this.wHeight / 2 + this.xHeight / 4);
 	ctx.restore();
@@ -275,7 +276,7 @@ Text.prototype.drawMotto = function(ctx)
 
 	ctx.fillStyle = "white";
 	ctx.textAlign = "center";
-	ctx.font = "500 " + this.mottoTextHeight + "px Helvetica";
+	ctx.font = "500 " + this.mottoTextHeight + "px " + font;
 
 	ctx.fillText("unleash brilliance", x, y + this.mottoTextHeight);
 };
@@ -389,6 +390,7 @@ var text = new Text(ctx);
 var particleSystem = new ParticleSystem(ctx);
 particleSystem.x = wWidth / 2;
 particleSystem.y = wHeight / 2 + text.xHeight / 4 - 20;
+particleSystem.xSpread = text.xWidth;
 
 function draw()
 {
@@ -397,7 +399,7 @@ function draw()
 	text.drawX();
 	//particleSystem.draw();
 	particleSystem.drawFront();
-	text.drawMotto();
+	//text.drawMotto();
 }
 
 var prevTime = null
