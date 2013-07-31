@@ -24,6 +24,7 @@ function draw()
 	particleSystem.drawBack();
 	//particleSystem.draw();
 	particleSystem.drawFront();
+	text.drawMotto();
 }
 
 var prevTime = null

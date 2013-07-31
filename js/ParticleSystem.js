@@ -130,17 +130,14 @@ Particle.prototype.step = function(delta)
 		var deadness = timeDying / this.deathTime;
 
 		this.alpha = 1.0 - deadness
-<<<<<<< HEAD
-		this.r = 23;
-		this.g = 231;
-		this.b = 100 + Math.floor(Math.random() * 100);
-=======
+		// this.r = 23;
+		// this.g = 231;
+		// this.b = 100 + Math.floor(Math.random() * 100);
 		/*this.r = this.g = 150;
 		this.b = 120 + Math.floor(Math.random() * 100);*/
 		this.r = 220;
 		this.g = 188;
 		this.b = 255;
->>>>>>> fbf2448733d07cffb0c638b1858774536c7b5952
 	}
 };
 
