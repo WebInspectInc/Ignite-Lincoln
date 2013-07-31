@@ -4,8 +4,8 @@ function ParticleSystem(ctx)
 	this.particles = [];
 	//this.emmisionRate = 35; //per second?
 	this.angle = 0;
-	this.maxParticles = 500;
-	this.particlesPerSecond = 60;
+	this.maxParticles = 350;
+	this.particlesPerSecond = 30;
 	this.deltaElapsed = 0;
 	this.xSpread = 200;
 
@@ -51,7 +51,7 @@ ParticleSystem.prototype.emit = function()
 {
 	if (this.particles.length < this.maxParticles) 
 	{
-		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 6 + 4));
+		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 4 + 6));
 		this.particles[this.particles.length - 1].particleImage = this.particleImage;
 	}
 };
@@ -76,7 +76,7 @@ function Particle(x, y, angle, speed, lifetime)
 	this.rotation = 0;
 	this.rotMod = Math.random() * 2 - 1;
 	this.living = 0;
-	this.deathTime = 1;
+	this.deathTime = 2;
 	this.dying = false;
 	this.alpha = 1.0;
 
@@ -107,7 +107,7 @@ Particle.prototype.step = function(delta)
 
 		this.alpha = 1.0 - deadness
 		this.r = this.g = 150;
-		this.b = 150 + Math.floor(Math.random() * 100);
+		this.b = 120 + Math.floor(Math.random() * 100);
 	}
 };
 
