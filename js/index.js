@@ -20,16 +20,10 @@ particleSystem.y = wHeight / 2 + text.xHeight / 4 - 20;
 function draw()
 {
 	ctx.clearRect(0, 0, wWidth, wHeight);
-<<<<<<< HEAD
 	text.drawX();
-	particleSystem.draw();
-	text.drawMotto();
-=======
 	particleSystem.drawBack();
-	text.draw();
 	//particleSystem.draw();
 	particleSystem.drawFront();
->>>>>>> fbf2448733d07cffb0c638b1858774536c7b5952
 }
 
 var prevTime = null
