@@ -18,8 +18,10 @@ particleSystem.y = wHeight / 2 + text.xHeight / 4;
 function draw()
 {
 	ctx.clearRect(0, 0, wWidth, wHeight);
+	particleSystem.drawBack();
 	text.draw();
-	particleSystem.draw();
+	//particleSystem.draw();
+	particleSystem.drawFront();
 
 }
 
