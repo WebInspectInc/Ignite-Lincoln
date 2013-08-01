@@ -36,9 +36,12 @@ function step(time)
 	if (prevTime != null)
 	{
 		var delta = (time - prevTime) / 1000;
-		particleSystem.step(delta);
-		text.step(delta);
-		draw();
+		if (delta < 0.16)
+		{
+			particleSystem.step(delta);
+			text.step(delta);
+			draw();
+		}
 	}
 	window.requestAnimationFrame(step);
 	prevTime = time;
