@@ -90,7 +90,7 @@ ParticleSystem.prototype.step = function(delta)
 
 	var i = particles.length;
 
-ile(i--) 
+	while(i--) 
 	{
 		pStep(particles[i]);
 	}
@@ -108,18 +108,9 @@ ParticleSystem.prototype.emit = function()
 	if (this.frontParticles.length + this.backParticles.length < this.maxParticles) 
 	{
 		this.emitFrontNext = !this.emitFrontNext;
-<<<<<<< HEAD
-		var p = new Particle(this.x + (Math.random() - 0.5) * this.xSpread * 2, this.y, Math.random() * 360, 50, Math.random() * 5 + 5)
+		var p = new Particle(this.x + (Math.random() - 0.5) * this.xSpread, this.y, Math.random() * 360, 50, Math.random() * 5 + 5)
 		p.particleImage = this.particleImage;
 		p.front = this.emitFrontNext;
-=======
-		this.particles.push(new Particle(this.x + (Math.random() - 0.5) * this.xSpread, this.y, Math.random() * 360, 50, Math.random() * 5 + 5));
-		this.particles[this.particles.length - 1].particleImage = this.particleImage;
-		this.particles[this.particles.length - 1].front = this.emitFrontNext;
-	}
-};
->>>>>>> gh-pages
-
 		if (this.emitFrontNext) this.frontParticles.push(p);
 		else this.backParticles.push(p);
 	}
@@ -418,9 +409,12 @@ function step(time)
 	if (prevTime != null)
 	{
 		var delta = (time - prevTime) / 1000;
-		particleSystem.step(delta);
-		text.step(delta);
-		draw();
+		if (delta < 0.16)
+		{
+			particleSystem.step(delta);
+			text.step(delta);
+			draw();
+		}
 	}
 	window.requestAnimationFrame(step);
 	prevTime = time;
